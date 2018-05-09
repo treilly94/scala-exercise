@@ -37,4 +37,14 @@ class CheckoutSystemTest extends FlatSpec with Matchers {
 
     out should be(1.1)
   }
+  it should "throw an error if the item is not a Apple or Orange" in {
+    val in: List[String] = List("Orange", "Apple", "Bananna")
+
+    val caught: Exception =
+    intercept[Exception] {
+      CheckoutSystem.checkout(in)
+    }
+
+    caught.getMessage should be("Bananna is not a valid item")
+  }
 }
