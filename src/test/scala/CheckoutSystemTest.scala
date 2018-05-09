@@ -25,11 +25,11 @@ class CheckoutSystemTest extends FlatSpec with Matchers {
 
     out should be(1.8)
   }
-  it should "return 16.75 for 101 Oranges" in {
+  it should "return 17 for 101 Oranges" in {
     val in: List[String] = for (_ <- List.range(0, 101)) yield "Orange"
     val out: Double = CheckoutSystem.checkout(in)
 
-    out should be(16.75)
+    out should be(17.0)
   }
   it should "return 1.1 for 2 Oranges and 1 Apple" in {
     val in: List[String] = List("Orange", "Apple", "Orange")
