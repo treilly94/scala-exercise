@@ -18,7 +18,13 @@ object CheckoutSystem {
         case None => throw new Exception(i + " is not a valid item")
       }
     }
-    total
+    // Calculate discount
+    val appleDiscount: Double = (items.count(_ == "Apple") / 2) * 0.6
+    val orangeDiscount: Double = (items.count(_ == "Orange") / 3) * 0.25
+
+    // Apply discount
+    total - (appleDiscount + orangeDiscount)
+
   }
 
 }
